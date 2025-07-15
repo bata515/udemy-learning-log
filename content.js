@@ -1,5 +1,6 @@
 let watchTime = 0;
 let lastCheck = Date.now();
+let lastPushedTime = 0;
 
 setInterval(() => {
   const video = document.querySelector('video');
@@ -11,17 +12,12 @@ setInterval(() => {
 
     console.log(`視聴時間: ${Math.floor(watchTime)}秒`);
 
-    if (watchTime >= 60 && !localStorage.getItem('alreadyPushed')) {
-      // Pythonスクリプトをローカルで起動
+    if (watchTime - lastPushedTime >= 3600) { // 3600秒 (1時間) ごとにプッシュ
+      console.log('1時間経過、githubへpushします');
       fetch('http://localhost:3001/push', { method: 'POST' });
-      localStorage.setItem('alreadyPushed', 'true');
-
-        // 3時間後にフラグを削除
-        setTimeout(() => {
-          localStorage.removeItem('alreadyPushed');
-          console.log('alreadyPushedフラグをリセットしました');
-        }, 30 * 60 * 1000); // 30分＝1800000ミリ秒
+      lastPushedTime = watchTime;
     }
+
   } else {
     lastCheck = Date.now();
   }
