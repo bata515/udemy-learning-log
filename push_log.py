@@ -21,7 +21,7 @@ class Handler(BaseHTTPRequestHandler):
 
             # ログファイルに書き込む
             with open(log_file, "a") as f:
-                f.write(f"👀 Udemy視聴ログ: {timestamp}\n")
+                f.write(f"Udemy視聴ログ: {timestamp}\n")
 
             # Gitでコミット＆プッシュ
             subprocess.run(["git", "add", log_file], check=True)
@@ -37,7 +37,7 @@ class Handler(BaseHTTPRequestHandler):
 def run_server():
     server_address = ('', 3001)
     httpd = HTTPServer(server_address, Handler)
-    print("📡 Push server running at http://localhost:3001")
+    print("Push server running at http://localhost:3001")
     httpd.serve_forever()
 
 if __name__ == "__main__":
