@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "Udemy Auto Commit",
+  "version": "1.0",
+  "permissions": ["scripting"],
+  "host_permissions": ["*://*.udemy.com/*"],
+  "content_scripts": [
+    {
+      "matches": ["*://*.udemy.com/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
