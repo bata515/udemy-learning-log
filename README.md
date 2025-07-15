@@ -96,7 +96,7 @@ udemy-learning-log/
 2. 1時間以上視聴すると `http://localhost:3001/push` にPOSTリクエストを送信
 3. **push_log.py** がリクエストを受信し、現在時刻を `learning-log.txt` に記録
 4. 自動的に `git add`、`git commit`、`git push` を実行
-5. 30分経過後に再度記録をログを自動的にpush可能となる
+5. 継続視聴時に更に1時間毎に再度記録を自動的にpushする
 
 ## 注意事項
 
