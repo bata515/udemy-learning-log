@@ -58,7 +58,7 @@ git remote add origin git@github.com:ユーザー名/udemy-learning-log.git
 ```bash
 python push_log.py
 # バックグラウンドで実行したい場合は
-python push_log.py &
+nohup python push_log.py &
 ```
 
 サーバーが正常に起動すると以下のメッセージが表示されます：
